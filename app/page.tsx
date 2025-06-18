@@ -370,17 +370,7 @@ export default function HomePage() {
             }`}
           >
             <div className={`${sectionTileStyle}`}>
-              <p className="text-lg md:text-xl leading-relaxed text-gray-200 mb-8">
-                I am currently a 1st year student in Amity University, Noida. From very early on in my life, I have been
-                interested in technology and computers. Hence, I am currently pursuing this interest as a Computer
-                Application student.
-              </p>
-              <p className="text-lg md:text-xl leading-relaxed text-gray-200 mb-12">
-                My technical interests know no bounds! I am good at Frontend Development, Competitive Programming, also
-                experienced in App Development and Backend Development.
-              </p>
-
-              {/* CV Button */}
+              {/* CV Button - MOVED HERE */}
               <div className="text-center mb-12">
                 <Button
                   asChild
@@ -393,6 +383,16 @@ export default function HomePage() {
                   </Link>
                 </Button>
               </div>
+
+              <p className="text-lg md:text-xl leading-relaxed text-gray-200 mb-8">
+                I am currently a 1st year student in Amity University, Noida. From very early on in my life, I have been
+                interested in technology and computers. Hence, I am currently pursuing this interest as a Computer
+                Application student.
+              </p>
+              <p className="text-lg md:text-xl leading-relaxed text-gray-200 mb-12">
+                My technical interests know no bounds! I am good at Frontend Development, Competitive Programming, also
+                experienced in App Development and Backend Development.
+              </p>
 
               {/* Social Links */}
               <div className="flex justify-start space-x-6">
