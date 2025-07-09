@@ -256,8 +256,9 @@ export default function HomePage() {
       {/* ---------------------- PROJECTS ---------------------- */}
       <section id="projects" className="py-20">
         <div className="max-w-6xl mx-auto px-6">
+          <div>
           <div className={sectionTileStyle}>
-            <h2 className="text-4xl md:text-6xl font-anton font-bold text-center mb-16 uppercase bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-6xl font-anton font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
               My&nbsp;Projects
             </h2>
 
@@ -332,6 +333,7 @@ export default function HomePage() {
               </Card>
             </div>
           </div>
+          </div>
         </div>
       </section>
 
@@ -339,7 +341,7 @@ export default function HomePage() {
       <section id="skills" className="py-20">
         <div className="max-w-4xl mx-auto px-6">
           <div className={sectionTileStyle}>
-            <h2 className="text-4xl md:text-6xl font-anton font-bold text-center mb-16 uppercase bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-6xl font-anton font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
               My&nbsp;Skills
             </h2>
 
@@ -385,7 +387,7 @@ export default function HomePage() {
       <section id="contact" className="py-20">
         <div className="max-w-4xl mx-auto px-6">
           <div className={sectionTileStyle}>
-            <h2 className="text-4xl md:text-6xl font-anton font-bold text-center mb-8 uppercase bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-6xl font-anton font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
               Get&nbsp;In&nbsp;Touch
             </h2>
             <p className="text-xl text-gray-200 text-center mb-16 max-w-2xl mx-auto">
