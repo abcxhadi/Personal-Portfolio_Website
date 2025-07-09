@@ -388,7 +388,7 @@ export default function HomePage() {
             <h2 className="text-4xl md:text-6xl font-anton font-bold text-center mb-8 uppercase bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
               Get&nbsp;In&nbsp;Touch
             </h2>
-            <p className="text-xl text-gray-200 ratingtext-center mb-16 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-200 text-center mb-16 max-w-2xl mx-auto">
               I'm always open to discussing new opportunities, collaborations, or just chatting about technology!
             </p>
 
