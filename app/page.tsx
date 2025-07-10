@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Github, Linkedin, Mail, Instagram, ExternalLink, FolderOpen, MapPin } from "lucide-react"
@@ -54,14 +54,69 @@ const projects = [
 
 /* ------------------------------ SKILL ICONS ------------------------------ */
 
-const SkillIcon = ({ skill }: { skill: string }) => {
-  const getSkillIcon = (skillName: string) => {
-    //  ... SVG switch from previous code (unchanged) ...
-    //  keep your long switch statement here
-    return null
-  }
-  return <div className="flex items-center justify-center text-blue-400">{getSkillIcon(skill)}</div>
-}
+const skillDetails: { name: string; description: string; icon: React.ReactNode }[] = [
+  {
+    name: "Figma",
+    description: "Design Tool",
+    icon: (
+      <svg width="40" height="40" viewBox="0 0 256 256" fill="none"><rect width="256" height="256" rx="60" fill="#242938"/><g><circle cx="128" cy="128" r="128" fill="#242938"/><g><path d="M128 128c0-17.673 14.327-32 32-32h32V64c0-17.673-14.327-32-32-32h-32v32c0 17.673 14.327 32 32 32h-32v32z" fill="#0ACF83"/><path d="M128 128c0 17.673-14.327 32-32 32H64v32c0 17.673 14.327 32 32 32h32v-32c0-17.673-14.327-32-32-32h32v-32z" fill="#A259FF"/><path d="M128 128c0-17.673 14.327-32 32-32h32V64c0-17.673-14.327-32-32-32h-32v32c0 17.673 14.327 32 32 32h-32v32z" fill="#F24E1E"/><path d="M128 128c0 17.673-14.327 32-32 32H64v32c0 17.673 14.327 32 32 32h32v-32c0-17.673-14.327-32-32-32h32v-32z" fill="#FF7262"/><circle cx="128" cy="128" r="32" fill="#1ABCFE"/></g></g></svg>
+    ),
+  },
+  {
+    name: "TypeScript",
+    description: "JavaScript but better",
+    icon: <span className="bg-blue-600 text-white rounded p-2 font-bold text-lg">TS</span>,
+  },
+  {
+    name: "React",
+    description: "JavaScript Library",
+    icon: <svg width="40" height="40" viewBox="0 0 256 256" fill="none"><circle cx="128" cy="128" r="128" fill="#242938"/><g><circle cx="128" cy="128" r="40" fill="#61DAFB"/><ellipse rx="80" ry="32" transform="matrix(.866 .5 -.5 .866 128 128)" stroke="#61DAFB" strokeWidth="8"/><ellipse rx="80" ry="32" transform="matrix(.866 -.5 .5 .866 128 128)" stroke="#61DAFB" strokeWidth="8"/><ellipse rx="80" ry="32" transform="matrix(0 1 -1 0 128 128)" stroke="#61DAFB" strokeWidth="8"/></g></svg>,
+  },
+  {
+    name: "NextJS",
+    description: "React framework",
+    icon: <span className="bg-gray-800 text-white rounded p-2 font-bold text-lg">N</span>,
+  },
+  {
+    name: "Tailwind",
+    description: "CSS framework",
+    icon: <svg width="40" height="40" viewBox="0 0 256 256" fill="none"><rect width="256" height="256" rx="60" fill="#242938"/><path d="M128 96c-16 0-28 8-36 24 8-16 20-24 36-24s28 8 36 24c-8-16-20-24-36-24zm0 32c-16 0-28 8-36 24 8-16 20-24 36-24s28 8 36 24c-8-16-20-24-36-24z" fill="#38BDF8"/></svg>,
+  },
+  {
+    name: "Git",
+    description: "Version control",
+    icon: <svg width="40" height="40" viewBox="0 0 256 256" fill="none"><rect width="256" height="256" rx="60" fill="#242938"/><path d="M196.7 117.7l-58.4-58.4c-5.1-5.1-13.3-5.1-18.4 0l-15.2 15.2 18.4 18.4c5.2-1.8 11.2-0.6 15.3 3.5 4.1 4.1 5.3 10.1 3.5 15.3l17.7 17.7c5.2-1.8 11.2-0.6 15.3 3.5 5.7 5.7 5.7 15 0 20.7-5.7 5.7-15 5.7-20.7 0-4.1-4.1-5.3-10.1-3.5-15.3l-17.7-17.7c-5.2 1.8-11.2 0.6-15.3-3.5-4.1-4.1-5.3-10.1-3.5-15.3l-18.4-18.4-15.2 15.2c-5.1 5.1-5.1 13.3 0 18.4l58.4 58.4c5.1 5.1 13.3 5.1 18.4 0l15.2-15.2-18.4-18.4c-5.2 1.8-11.2 0.6-15.3-3.5-4.1-4.1-5.3-10.1-3.5-15.3l-17.7-17.7c-5.2 1.8-11.2 0.6-15.3-3.5-5.7-5.7-5.7-15 0-20.7 5.7-5.7 15-5.7 20.7 0 4.1 4.1 5.3 10.1 3.5 15.3l17.7 17.7c5.2-1.8 11.2-0.6 15.3 3.5 4.1 4.1 5.3 10.1 3.5 15.3l18.4 18.4 15.2-15.2c5.1-5.1 5.1-13.3 0-18.4z" fill="#F14E32"/></svg>,
+  },
+  {
+    name: "Supabase",
+    description: "Backend tool",
+    icon: <svg width="40" height="40" viewBox="0 0 256 256" fill="none"><rect width="256" height="256" rx="60" fill="#242938"/><path d="M128 64l64 128H64L128 64z" fill="#3ECF8E"/></svg>,
+  },
+  {
+    name: "NodeJS",
+    description: "Backend",
+    icon: <svg width="40" height="40" viewBox="0 0 256 256" fill="none"><rect width="256" height="256" rx="60" fill="#242938"/><path d="M128 64l64 128H64L128 64z" fill="#8CC84B"/></svg>,
+  },
+  {
+    name: "MongoDB",
+    description: "NoSQL database",
+    icon: <svg width="40" height="40" viewBox="0 0 256 256" fill="none"><rect width="256" height="256" rx="60" fill="#242938"/><path d="M128 64l64 128H64L128 64z" fill="#47A248"/></svg>,
+  },
+  {
+    name: "Prisma",
+    description: "ORM",
+    icon: <span className="bg-slate-800 text-white rounded p-2 font-bold text-lg">△</span>,
+  },
+  {
+    name: "PostgreSQL",
+    description: "OR database system",
+    icon: <svg width="40" height="40" viewBox="0 0 256 256" fill="none"><rect width="256" height="256" rx="60" fill="#242938"/><path d="M128 64l64 128H64L128 64z" fill="#336791"/></svg>,
+  },
+]
+
+const SkillIcon = ({ icon }: { icon: React.ReactNode }) => (
+  <div className="flex items-center justify-center w-12 h-12 mb-4">{icon}</div>
+)
 
 /* ------------------------------ SKILLS DATA ------------------------------ */
 
@@ -334,46 +389,23 @@ export default function HomePage() {
 
       {/* ---------------------- SKILLS ---------------------- */}
       <section id="skills" className="py-20">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6">
           <div className={sectionTileStyle}>
-            <h2 className="text-4xl md:text-6xl font-anton font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              My&nbsp;Skills
+            <h2 className="text-5xl md:text-7xl font-anton font-bold text-left mb-8 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              Current technologies
             </h2>
-
-            <Card className={`${cardStyle} bg-white/5 border-white/10`}>
-              {/* Tabs */}
-              <div className="flex border-b border-white/10">
-                {Object.keys(skillsData).map((tab) => (
-                  <button
-                    key={tab}
-                    onClick={() => setActiveTab(tab as keyof typeof skillsData)}
-                    className={`flex-1 px-6 py-4 text-lg font-semibold transition ${
-                      activeTab === tab
-                        ? "text-blue-400 border-b-2 border-blue-400 bg-white/5"
-                        : "text-gray-400 hover:text-white hover:bg-white/5"
-                    }`}
-                  >
-                    {tab}
-                  </button>
-                ))}
-              </div>
-
-              {/* Content */}
-              <CardContent className="p-8">
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                  {skillsData[activeTab].map((skill) => (
-                    <Badge
-                      key={skill}
-                      variant="secondary"
-                      className="bg-white/5 text-white border border-white/10 hover:border-white/20 hover:bg-white/10 transition flex items-center gap-2 justify-center p-3 rounded-full hover:scale-105"
-                    >
-                      <SkillIcon skill={skill} />
-                      {skill}
-                    </Badge>
-                  ))}
+            <p className="text-gray-400 text-lg mb-12 max-w-3xl">
+              I'm proficient in a range of modern technologies that empower me to build highly functional solutions. These are some of my main technologies.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {skillDetails.map(({ name, description, icon }) => (
+                <div key={name} className="flex flex-col items-start bg-white/5 border border-white/10 rounded-2xl p-6 gap-2 shadow-lg hover:scale-105 transition">
+                  <SkillIcon icon={icon} />
+                  <div className="text-xl font-semibold text-white mb-1">{name}</div>
+                  <div className="text-gray-400 text-base">{description}</div>
                 </div>
-              </CardContent>
-            </Card>
+              ))}
+            </div>
           </div>
         </div>
       </section>
