@@ -253,89 +253,84 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ---------------------- PROJECTS ---------------------- */}
-      <section id="projects" className="py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <div>
-          <div className={sectionTileStyle}>
-            <h2 className="text-4xl md:text-6xl font-anton font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              My&nbsp;Projects
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              {projects.map((project) => (
-                <Card
-                  key={project.id}
-                  className={`${cardStyle} bg-white/5 border-white/10 transition hover:scale-105 hover:shadow-xl hover:shadow-purple-500/10`}
-                >
-                  <CardHeader className="p-0">
-                    <div className="relative h-48 w-full rounded-t-2xl overflow-hidden">
-                      <Image
-                        src={project.image || "/placeholder.svg"}
-                        alt={project.title}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  </CardHeader>
-
-                  <CardContent className="p-6">
-                    <div className="flex justify-between items-start mb-4">
-                      <CardTitle className="text-xl">{project.title}</CardTitle>
-                      <Link
-                        href={project.githubUrl}
-                        className="text-gray-500 hover:text-red-500 transition hover:scale-110"
-                      >
-                        <Github className="w-6 h-6" />
-                      </Link>
-                    </div>
-
-                    <CardDescription className="text-gray-200 mb-4">{project.description}</CardDescription>
-                    <p className="text-sm text-blue-400 mb-6">
-                      <span className="font-semibold">TECH&nbsp;STACK:</span> {project.techStack}
-                    </p>
-
-                    <Button
-                      asChild
-                      className="w-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-blue-500/25 transition rounded-full"
+    {/* ---------------------- PROJECTS ---------------------- */}
+<section id="projects" className="py-20">
+  <div className="max-w-6xl mx-auto px-6">
+    <div>
+      <div className={sectionTileStyle}>
+        <h2 className="text-4xl md:text-6xl font-anton font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+          My&nbsp;Projects
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          {projects.map((project) => (
+            <Card
+              key={project.id}
+              className={`${cardStyle} bg-white/5 border-white/10 transition hover:scale-105 hover:shadow-xl hover:shadow-purple-500/10`}
+            >
+              <CardHeader className="p-6 pb-4">
+                <div className="relative h-48 w-full rounded-xl overflow-hidden mb-4">
+                  <Image
+                    src={project.image || "/placeholder.svg"}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </CardHeader>
+              <CardContent className="p-6 pt-0">
+                  <div className="flex justify-between items-start mb-4">
+                    <CardTitle className="text-xl">{project.title}</CardTitle>
+                    <Link
+                      href={project.githubUrl}
+                      className="text-gray-500 hover:text-red-500 transition hover:scale-110"
                     >
-                      <Link href={project.websiteUrl} target="_blank">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Visit&nbsp;Website
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            {/* View All Projects */}
-            <div className="flex justify-center">
-              <Card
-                className={`${cardStyle} bg-white/5 border-white/10 w-full md:w-96 transition hover:scale-105 hover:shadow-xl hover:shadow-purple-500/10`}
-              >
-                <CardContent className="p-8 text-center">
-                  <FolderOpen className="w-16 h-16 mx-auto mb-4 text-blue-400" />
-                  <CardTitle className="text-2xl mb-4">View&nbsp;All&nbsp;Projects</CardTitle>
-                  <CardDescription className="text-gray-200 mb-6">
-                    Explore all my projects and contributions on GitHub
-                  </CardDescription>
+                      <Github className="w-6 h-6" />
+                    </Link>
+                  </div>
+                  <CardDescription className="text-gray-200 mb-4">{project.description}</CardDescription>
+                  <p className="text-sm text-blue-400 mb-6">
+                    <span className="font-semibold">TECH&nbsp;STACK:</span> {project.techStack}
+                  </p>
                   <Button
                     asChild
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-blue-500/25 transition rounded-full"
                   >
-                    <Link href="https://github.com" target="_blank">
-                      <Github className="w-4 h-4 mr-2" />
-                      View&nbsp;on&nbsp;GitHub
+                    <Link href={project.websiteUrl} target="_blank">
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      Visit&nbsp;Website
                     </Link>
                   </Button>
                 </CardContent>
               </Card>
-            </div>
-          </div>
-          </div>
+          ))}
         </div>
-      </section>
+        {/* View All Projects */}
+        <div className="flex justify-center">
+          <Card
+            className={`${cardStyle} bg-white/5 border-white/10 w-full md:w-96 transition hover:scale-105 hover:shadow-xl hover:shadow-purple-500/10`}
+          >
+            <CardContent className="p-8 text-center">
+              <FolderOpen className="w-16 h-16 mx-auto mb-4 text-blue-400" />
+              <CardTitle className="text-2xl mb-4">View&nbsp;All&nbsp;Projects</CardTitle>
+              <CardDescription className="text-gray-200 mb-6">
+                Explore all my projects and contributions on GitHub
+              </CardDescription>
+              <Button
+                asChild
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-blue-500/25 transition rounded-full"
+              >
+                <Link href="https://github.com" target="_blank">
+                  <Github className="w-4 h-4 mr-2" />
+                  View&nbsp;on&nbsp;GitHub
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* ---------------------- SKILLS ---------------------- */}
       <section id="skills" className="py-20">
