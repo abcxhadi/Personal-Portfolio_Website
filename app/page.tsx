@@ -258,7 +258,7 @@ export default function HomePage() {
   <div className="max-w-6xl mx-auto px-6">
     <div>
       <div className={sectionTileStyle}>
-        <h2 className="text-4xl md:text-6xl font-anton font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+        <h2 className="text-4xl md:text-6xl font-bold text-center mb-10 text-white">
           My&nbsp;Projects
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -331,49 +331,101 @@ export default function HomePage() {
     </div>
   </div>
 </section>
-
       {/* ---------------------- SKILLS ---------------------- */}
       <section id="skills" className="py-20">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6">
           <div className={sectionTileStyle}>
-            <h2 className="text-4xl md:text-6xl font-anton font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              My&nbsp;Skills
+            <h2 className="text-4xl md:text-6xl font-bold text-center mb-8 text-white">
+              Current Technologies
             </h2>
+            <p className="text-center text-gray-400 mb-12 max-w-3xl mx-auto text-lg">
+              I'm proficient in a range of modern technologies that empower me to build highly functional solutions. 
+              These are some of my main technologies.
+            </p>
 
-            <Card className={`${cardStyle} bg-white/5 border-white/10`}>
-              {/* Tabs */}
-              <div className="flex border-b border-white/10">
+            {/* Tabs */}
+            <div className="flex justify-center mb-12">
+              <div className="inline-flex rounded-full bg-white/5 p-1 backdrop-blur-sm border border-white/10">
                 {Object.keys(skillsData).map((tab) => (
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab as keyof typeof skillsData)}
-                    className={`flex-1 px-6 py-4 text-lg font-semibold transition ${
+                    className={`px-8 py-3 text-sm font-semibold rounded-full transition-all duration-300 ${
                       activeTab === tab
-                        ? "text-blue-400 border-b-2 border-blue-400 bg-white/5"
-                        : "text-gray-400 hover:text-white hover:bg-white/5"
+                        ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
+                        : "text-gray-400 hover:text-white"
                     }`}
                   >
                     {tab}
                   </button>
                 ))}
               </div>
+            </div>
 
-              {/* Content */}
-              <CardContent className="p-8">
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                  {skillsData[activeTab].map((skill) => (
-                    <Badge
-                      key={skill}
-                      variant="secondary"
-                      className="bg-white/5 text-white border border-white/10 hover:border-white/20 hover:bg-white/10 transition flex items-center gap-2 justify-center p-3 rounded-full hover:scale-105"
-                    >
+            {/* Tech Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {skillsData[activeTab].map((skill) => {
+                // Get skill description based on category
+                const getSkillDescription = (skillName: string) => {
+                  const descriptions: { [key: string]: string } = {
+                    // Frontend
+                    "React": "JavaScript Library",
+                    "Next.js": "React Framework",
+                    "Vue.js": "Progressive Framework",
+                    "TypeScript": "JavaScript but better",
+                    "JavaScript": "Programming Language",
+                    "HTML5": "Markup Language",
+                    "CSS3": "Styling Language",
+                    "Tailwind CSS": "CSS Framework",
+                    "Material UI": "Component Library",
+                    "Sass": "CSS Preprocessor",
+                    "Redux": "State Management",
+                    "Zustand": "State Management",
+                    "React Query": "Data Fetching",
+                    // Backend
+                    "Node.js": "JavaScript Runtime",
+                    "Express.js": "Web Framework",
+                    "Python": "Programming Language",
+                    "Django": "Python Framework",
+                    "FastAPI": "Modern API Framework",
+                    "PostgreSQL": "SQL Database",
+                    "MongoDB": "NoSQL Database",
+                    "MySQL": "SQL Database",
+                    "Redis": "In-Memory Database",
+                    "REST APIs": "API Architecture",
+                    "GraphQL": "Query Language",
+                    "Socket.io": "Real-time Engine",
+                    // DSA
+                    "Data Structures": "Core Concepts",
+                    "Algorithms": "Problem Solving",
+                    "Problem Solving": "Analytical Skills",
+                    "Competitive Programming": "Contest Coding",
+                    "Time Complexity": "Performance Analysis",
+                    "Space Complexity": "Memory Analysis",
+                    "Dynamic Programming": "Optimization Technique",
+                    "Graph Algorithms": "Network Solutions",
+                    "Tree Algorithms": "Hierarchical Solutions",
+                    "Sorting & Searching": "Fundamental Algorithms",
+                  }
+                  return descriptions[skillName] || "Technology"
+                }
+
+                return (
+                  <div
+                    key={skill}
+                    className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 flex items-center gap-4 transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:transform hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-500/10"
+                  >
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                       <SkillIcon skill={skill} />
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-white text-lg">{skill}</h3>
+                      <p className="text-gray-400 text-sm">{getSkillDescription(skill)}</p>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -382,7 +434,7 @@ export default function HomePage() {
       <section id="contact" className="py-20">
         <div className="max-w-4xl mx-auto px-6">
           <div className={sectionTileStyle}>
-            <h2 className="text-4xl md:text-6xl font-anton font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-6xl font-bold text-center mb-8 text-white">
               Get&nbsp;In&nbsp;Touch
             </h2>
             <p className="text-xl text-gray-200 text-center mb-16 max-w-2xl mx-auto">
